@@ -16,24 +16,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        btnAllBooks = findViewById(R.id.btnAllBooks);
-
+        initViews();
 
         btnAllBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,AllBooksActivity.class);
+                Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);
+                startActivity(intent);
 
             }
         });
 
 
-        initViews();
     }
 
     private void initViews() {
-
+        btnAllBooks = findViewById(R.id.btnAllBooks);
         btnAlreadyRead = findViewById(R.id.btnAlreadyRead);
         btnWantToRead = findViewById(R.id.btnWatnToRead);
         btnCurrentlyReading = findViewById(R.id.btnCurrentlyReading);
