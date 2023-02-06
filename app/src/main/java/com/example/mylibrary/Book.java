@@ -11,6 +11,8 @@ public class Book {
     private String shortDesc;
     private String longDesc;
 
+    private boolean isExpanded;
+
     public int getId() {
         return id;
     }
@@ -75,6 +77,15 @@ public class Book {
         this.imageUrl = imageUrl;
         this.shortDesc = shortDesc;
         this.longDesc = longDesc;
+        this.isExpanded = false;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
     }
 
     @Override
