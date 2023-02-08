@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     private void initViews() {
 
         btnAllBooks = findViewById(R.id.btnAllBooks);
-        btnAllBooks = findViewById(R.id.btnAllBooks);
         btnAlreadyRead = findViewById(R.id.btnAlreadyRead);
         btnWantToRead = findViewById(R.id.btnWatnToRead);
         btnCurrentlyReading = findViewById(R.id.btnCurrentlyReading);
