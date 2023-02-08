@@ -48,13 +48,12 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, BookActivity.class);
-                intent.putExtra(BOOK_ID_KEY, books.get(position).getId());
+                Intent intent = new Intent(mContext,BookActivity.class );
+                intent.putExtra(BOOK_ID_KEY,books.get(position).getId());
 
                 mContext.startActivity(intent);
             }
         });
-
 
         holder.txtAuthor.setText(books.get(position).getAuthor());
         holder.txtDescription.setText(books.get(position).getShortDesc());
