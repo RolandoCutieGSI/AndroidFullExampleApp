@@ -23,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);
                 startActivity(intent);
-
             }
         });
 
+        btnAlreadyRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AllreadyReadBook.class);
+                startActivity(intent);
+            }
+        });
 
+        Utils.getInstance();
     }
 
     private void initViews() {
