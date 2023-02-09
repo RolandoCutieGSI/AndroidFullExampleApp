@@ -1,41 +1,38 @@
 package com.example.mylibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-
-public class AllBooksActivity extends AppCompatActivity {
-
-    private RecyclerView booksRecView;
-    private BookRecViewAdapter adapter;
-
+public class WantToReadActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_books);
+        setContentView(R.layout.activity_want_to_read);
 
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewWantToRead);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        adapter = new BookRecViewAdapter(this, "allBooks");
-        booksRecView = findViewById(R.id.booksReclycerView);
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this, "wantToReadBooks");
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        booksRecView.setAdapter(adapter);
-        booksRecView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        adapter.setBooks(Utils.getInstance(this).getAllBooks());
-
-
+        adapter.setBooks(Utils.getInstance(this).getWantToReadBooks());
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -47,6 +44,3 @@ public class AllBooksActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
-
-
