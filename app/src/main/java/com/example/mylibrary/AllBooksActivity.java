@@ -1,14 +1,13 @@
 package com.example.mylibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Adapter;
+import android.view.MenuItem;
 
-import java.util.ArrayList;
 
 public class AllBooksActivity extends AppCompatActivity {
 
@@ -21,8 +20,9 @@ public class AllBooksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_books);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        adapter = new BookRecViewAdapter(this);
+        adapter = new BookRecViewAdapter(this, "allBooks");
         booksRecView = findViewById(R.id.booksReclycerView);
 
 
@@ -30,9 +30,23 @@ public class AllBooksActivity extends AppCompatActivity {
         booksRecView.setLayoutManager(new LinearLayoutManager(this));
 
 
-
-        adapter.setBooks(Utils.getInstance().getAllBooks());
+        adapter.setBooks(Utils.getInstance(this).getAllBooks());
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
+
+
+

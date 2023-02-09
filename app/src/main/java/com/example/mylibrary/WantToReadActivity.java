@@ -8,7 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class AllreadyReadBook extends AppCompatActivity {
+public class WantToReadActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_want_to_read);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewWantToRead);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this, "wantToReadBooks");
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        adapter.setBooks(Utils.getInstance(this).getWantToReadBooks());
+    }
 
     @Override
     public void onBackPressed() {
@@ -17,27 +33,6 @@ public class AllreadyReadBook extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_allready_read_book);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
-
-        BookRecViewAdapter adapter = new BookRecViewAdapter(this,"alreadyReadBooks");
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        adapter.setBooks(Utils.getInstance(this).getAlreadyReadBooks());
-
-
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

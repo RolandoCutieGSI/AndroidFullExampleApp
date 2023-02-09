@@ -8,7 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class AllreadyReadBook extends AppCompatActivity {
+public class FavoriteBooksActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_favorite_books);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewFavoriteBooks);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this,"favoriteBooks");
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        adapter.setBooks(Utils.getInstance(this).getFavoriteBooks());
+    }
 
     @Override
     public void onBackPressed() {
@@ -17,27 +33,6 @@ public class AllreadyReadBook extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_allready_read_book);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
-
-        BookRecViewAdapter adapter = new BookRecViewAdapter(this,"alreadyReadBooks");
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        adapter.setBooks(Utils.getInstance(this).getAlreadyReadBooks());
-
-
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

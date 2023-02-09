@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">My Library</string>
+    <string name="activity_all_books">All Books</string>
+    <string name="activity_book">Book Details</string>
+    <string name="activity_already_read">Books You Already Read</string>
+    <string name="activity_favorite_books">Favorite Books</string>
+    <string name="activity_want_to_read">Your Wish List</string>
+    <string name="activity_currently_reading">Books You Are Currently Reading</string>
+    <string name="title_activity_add_book">AddBookActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
