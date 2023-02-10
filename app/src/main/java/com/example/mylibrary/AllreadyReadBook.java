@@ -20,11 +20,11 @@ public class AllreadyReadBook extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_allready_read_book);
+        setContentView(R.layout.allready_read_book);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.allreadyReadReclycerView);
 
 
         BookRecViewAdapter adapter = new BookRecViewAdapter(this,"alreadyReadBooks");
