@@ -310,4 +310,24 @@ public class Utils {
         }
         return  false;
     }
+
+    public boolean addBook(Book book) {
+
+        ArrayList<Book> books = getAllBooks();
+        if (books != null) {
+            if (books.add(book)) {
+                Gson gson = new Gson();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove(ALL_BOOKS_KEY);
+                editor.putString(ALL_BOOKS_KEY, gson.toJson(books));
+                editor.commit();
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
+
 }

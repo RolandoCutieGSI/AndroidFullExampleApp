@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnAllBooks, btnAlreadyRead, btnWantToRead, btnCurrentlyReading, btnFavorite, btnAbout;
+    private Button btnAllBooks, btnAlreadyRead, btnWantToRead, btnCurrentlyReading, btnFavorite, btnAddBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnAddBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Utils.getInstance(this);
     }
 
@@ -67,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         btnWantToRead = findViewById(R.id.btnWatnToRead);
         btnCurrentlyReading = findViewById(R.id.btnCurrentlyReading);
         btnFavorite = findViewById(R.id.btnFavorites);
-        btnAbout = findViewById(R.id.btnAbout);
+        btnAddBook = findViewById(R.id.btnAbout);
 
     }
 }
